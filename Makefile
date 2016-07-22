@@ -39,12 +39,13 @@ rmi: _check-env-base
 
 # --------------------------------------------------------------------------
 clean-junk:
-	docker rm        `docker ps -aq -f status=exited`      || true
+	docker rm -v     `docker ps -aq -f status=exited`      || true
 	docker rmi       `docker images -q -f dangling=true`   || true
 	docker volume rm `docker volume ls -qf dangling=true`  || true
 
+
 # --------------------------------------------------------------------------
 list:
-	docker images
+	docker images | head -10
 	docker volume ls
 	docker ps -a

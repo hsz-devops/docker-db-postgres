@@ -4,7 +4,7 @@
 # because we cannot write to an empty pgdata folder
 
 set -eu
-set -x
+#set -x
 
 [ -f "${PGDATA}/postgresql.conf" ] || exit -11
 [ -f "${PGDATA}/pg_hba.conf"     ] || exit -12

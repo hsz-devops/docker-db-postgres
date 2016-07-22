@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-set -x
+#set -x
 
 if [ "${POSTGRES_GEN_CERTS}" == "1" ]; then
     POSTGRES_CERTS_OWNER="${POSTGRES_CERTS_OWNER:-postgres}"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -eu
-set -x
+#set -x
 
 T_STAMP=$(date +"%Y%m%dT%H%M%S%Z")
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -e
 
 # This scripts generates a password to be passed to PGSQL

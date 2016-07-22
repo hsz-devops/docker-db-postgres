@@ -42,12 +42,12 @@ fi
 
 # ------------------------------------------------------------------
 # Modify hba.conf
-POSTGRES_AUTH_DEFAULT=${POSTGRES_AUTH_DEFAULT:-md5}
+POSTGRES_AUTH_REMOTE=${POSTGRES_AUTH_REMOTE:-md5}
 
 if cat "${PGDATA}/pg_hba.conf" | grep -E "^\s*host(ssl|nossl)?\s+(all)\s+(all)\s+(0.0.0.0/0)\s+(trust)(.*)$" ; then
     sed \
             --in-place=~ \
             --regexp-extended \
-            --expression "s|^\s*host((no)?nossl)?\s+(all)\s+(all)\s+(0.0.0.0/0)\s+(trust)(.*)$|host all all 0.0.0.0/0 ${POSTGRES_AUTH_DEFAULT}|" \
+            --expression "s|^\s*host((no)?nossl)?\s+(all)\s+(all)\s+(0.0.0.0/0)\s+(trust)(.*)$|host all all 0.0.0.0/0 ${POSTGRES_AUTH_REMOTE}|" \
         "${PGDATA}/pg_hba.conf"
 fi

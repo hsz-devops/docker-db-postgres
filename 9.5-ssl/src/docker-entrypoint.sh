@@ -3,7 +3,7 @@
 set -eu
 #set -x
 
-T_STAMP=$(date +"%Y%m%dT%H%M%S%Z")
+T_STAMP=$(date -u +"%Y%m%d_%H%M%S%Z%Z")
 
 [ -z "${DOCKER_BUILDER_DIR}" ] && exit -1
 cd "${DOCKER_BUILDER_DIR}"

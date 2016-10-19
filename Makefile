@@ -21,6 +21,7 @@ rebuild: _build_image
 
 _build_image: _check-env-base
 	docker build $(_DOCKER_BUILD_OPTS) -t $(IMAGE_NAME):9.5-ssl ./9.5-ssl
+	docker build $(_DOCKER_BUILD_OPTS) -t $(IMAGE_NAME):9.6-ssl ./9.6-ssl
 
 # --------------------------------------------------------------------------
 _check-env-base:
@@ -33,9 +34,14 @@ shell:shell-95
 shell-95: _check-env-base
 	docker run --rm -it --entrypoint bash $(IMAGE_NAME):9.5-ssl
 
+shell-96: _check-env-base
+	docker run --rm -it --entrypoint bash $(IMAGE_NAME):9.6-ssl
+
 # --------------------------------------------------------------------------
 rmi: _check-env-base
-	docker rmi $(IMAGE_NAME):9.5-ssl
+	docker rmi \
+		$(IMAGE_NAME):9.5-ssl
+		$(IMAGE_NAME):9.5-ssl
 
 # --------------------------------------------------------------------------
 clean-junk:

@@ -1,7 +1,6 @@
 # v1.0.0    2016-06-20     webmaster@highskillz.com
 
 IMAGE_NAME=ez123/db-postgres
-#TAG_VERSION=160715
 
 THIS_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 TIMESTAMP=$(shell date -u +"%Y%m%d_%H%M%S%Z")
@@ -41,7 +40,7 @@ shell-96: _check-env-base
 rmi: _check-env-base
 	docker rmi \
 		$(IMAGE_NAME):9.5-ssl
-		$(IMAGE_NAME):9.5-ssl
+		$(IMAGE_NAME):9.6-ssl
 
 # --------------------------------------------------------------------------
 clean-junk:
